@@ -5,10 +5,6 @@ from urllib.parse import urlparse
 from dotenv import load_dotenv
 
 
-def main():
-    load_dotenv()
-
-
 def is_bitlink(input_url, headers):
     url = f'https://api-ssl.bitly.com/v4/bitlinks/{input_url}'
     response = requests.get(url, headers=headers)
@@ -31,7 +27,7 @@ def get_count_clicks(input_url, headers):
 
 
 if __name__ == "__main__":
-    main()
+    load_dotenv()
     BITLY_TOKEN = os.environ["API_BITLY_TOKEN"]
     headers = {"Authorization": f"Bearer {BITLY_TOKEN}"}
 
